@@ -12,6 +12,7 @@
 		68B560311B4B6E2F00EDFC4D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68B560301B4B6E2F00EDFC4D /* Images.xcassets */; };
 		68B560341B4B6E2F00EDFC4D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68B560321B4B6E2F00EDFC4D /* LaunchScreen.xib */; };
 		68B560401B4B6E2F00EDFC4D /* iOSFontPreviewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B5603F1B4B6E2F00EDFC4D /* iOSFontPreviewTests.m */; };
+		68B5604B1B4B6E5A00EDFC4D /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B5604A1B4B6E5A00EDFC4D /* MainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,8 @@
 		68B560391B4B6E2F00EDFC4D /* iOSFontPreviewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSFontPreviewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		68B5603E1B4B6E2F00EDFC4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68B5603F1B4B6E2F00EDFC4D /* iOSFontPreviewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOSFontPreviewTests.m; sourceTree = "<group>"; };
+		68B560491B4B6E5A00EDFC4D /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		68B5604A1B4B6E5A00EDFC4D /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +81,8 @@
 			children = (
 				68B5602D1B4B6E2F00EDFC4D /* AppDelegate.h */,
 				68B5602E1B4B6E2F00EDFC4D /* AppDelegate.m */,
+				68B560491B4B6E5A00EDFC4D /* MainViewController.h */,
+				68B5604A1B4B6E5A00EDFC4D /* MainViewController.m */,
 				68B560301B4B6E2F00EDFC4D /* Images.xcassets */,
 				68B560321B4B6E2F00EDFC4D /* LaunchScreen.xib */,
 				68B560291B4B6E2F00EDFC4D /* Supporting Files */,
@@ -211,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				68B5602F1B4B6E2F00EDFC4D /* AppDelegate.m in Sources */,
+				68B5604B1B4B6E5A00EDFC4D /* MainViewController.m in Sources */,
 				68B5602C1B4B6E2F00EDFC4D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
