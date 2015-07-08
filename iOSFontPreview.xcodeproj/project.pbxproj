@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A6882D06F468326FB45CCD5 /* libPods-iOSFontPreview.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C40B215E7772528A9318EDD /* libPods-iOSFontPreview.a */; };
 		68B5602C1B4B6E2F00EDFC4D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B5602B1B4B6E2F00EDFC4D /* main.m */; };
 		68B5602F1B4B6E2F00EDFC4D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B5602E1B4B6E2F00EDFC4D /* AppDelegate.m */; };
 		68B560311B4B6E2F00EDFC4D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68B560301B4B6E2F00EDFC4D /* Images.xcassets */; };
 		68B560341B4B6E2F00EDFC4D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68B560321B4B6E2F00EDFC4D /* LaunchScreen.xib */; };
 		68B560401B4B6E2F00EDFC4D /* iOSFontPreviewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B5603F1B4B6E2F00EDFC4D /* iOSFontPreviewTests.m */; };
 		68B5604B1B4B6E5A00EDFC4D /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B5604A1B4B6E5A00EDFC4D /* MainViewController.m */; };
+		68F73BB31B4D720B00CFBCB8 /* DOPDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73BB21B4D720B00CFBCB8 /* DOPDropDownMenu.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +28,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C40B215E7772528A9318EDD /* libPods-iOSFontPreview.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOSFontPreview.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		177BC57D7B2EA1FD760F6C45 /* Pods-iOSFontPreview.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSFontPreview.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSFontPreview/Pods-iOSFontPreview.debug.xcconfig"; sourceTree = "<group>"; };
+		2833654A856281305CAA5048 /* Pods-iOSFontPreview.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSFontPreview.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSFontPreview/Pods-iOSFontPreview.release.xcconfig"; sourceTree = "<group>"; };
 		68B560261B4B6E2F00EDFC4D /* iOSFontPreview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSFontPreview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68B5602A1B4B6E2F00EDFC4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68B5602B1B4B6E2F00EDFC4D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -38,6 +43,8 @@
 		68B5603F1B4B6E2F00EDFC4D /* iOSFontPreviewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOSFontPreviewTests.m; sourceTree = "<group>"; };
 		68B560491B4B6E5A00EDFC4D /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		68B5604A1B4B6E5A00EDFC4D /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		68F73BB11B4D720B00CFBCB8 /* DOPDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOPDropDownMenu.h; sourceTree = "<group>"; };
+		68F73BB21B4D720B00CFBCB8 /* DOPDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOPDropDownMenu.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A6882D06F468326FB45CCD5 /* libPods-iOSFontPreview.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,12 +66,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2183F77D64E80B4E337D0D57 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				177BC57D7B2EA1FD760F6C45 /* Pods-iOSFontPreview.debug.xcconfig */,
+				2833654A856281305CAA5048 /* Pods-iOSFontPreview.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		68B5601D1B4B6E2F00EDFC4D = {
 			isa = PBXGroup;
 			children = (
 				68B560281B4B6E2F00EDFC4D /* iOSFontPreview */,
+				68F73BAF1B4D720B00CFBCB8 /* 3rd */,
 				68B5603C1B4B6E2F00EDFC4D /* iOSFontPreviewTests */,
 				68B560271B4B6E2F00EDFC4D /* Products */,
+				2183F77D64E80B4E337D0D57 /* Pods */,
+				B87E806474BC0A399C0FCCB1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,6 +136,32 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		68F73BAF1B4D720B00CFBCB8 /* 3rd */ = {
+			isa = PBXGroup;
+			children = (
+				68F73BB01B4D720B00CFBCB8 /* DOPDropDownMenu */,
+			);
+			name = 3rd;
+			path = iOSFontPreview/3rd;
+			sourceTree = "<group>";
+		};
+		68F73BB01B4D720B00CFBCB8 /* DOPDropDownMenu */ = {
+			isa = PBXGroup;
+			children = (
+				68F73BB11B4D720B00CFBCB8 /* DOPDropDownMenu.h */,
+				68F73BB21B4D720B00CFBCB8 /* DOPDropDownMenu.m */,
+			);
+			path = DOPDropDownMenu;
+			sourceTree = "<group>";
+		};
+		B87E806474BC0A399C0FCCB1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0C40B215E7772528A9318EDD /* libPods-iOSFontPreview.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -123,9 +169,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 68B560431B4B6E2F00EDFC4D /* Build configuration list for PBXNativeTarget "iOSFontPreview" */;
 			buildPhases = (
+				A5ECB67EC07C3B5EDDB347CF /* Check Pods Manifest.lock */,
 				68B560221B4B6E2F00EDFC4D /* Sources */,
 				68B560231B4B6E2F00EDFC4D /* Frameworks */,
 				68B560241B4B6E2F00EDFC4D /* Resources */,
+				3C26FBBC8DE1A1E01736EAD9 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -210,12 +258,46 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3C26FBBC8DE1A1E01736EAD9 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOSFontPreview/Pods-iOSFontPreview-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A5ECB67EC07C3B5EDDB347CF /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		68B560221B4B6E2F00EDFC4D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				68B5602F1B4B6E2F00EDFC4D /* AppDelegate.m in Sources */,
+				68F73BB31B4D720B00CFBCB8 /* DOPDropDownMenu.m in Sources */,
 				68B5604B1B4B6E5A00EDFC4D /* MainViewController.m in Sources */,
 				68B5602C1B4B6E2F00EDFC4D /* main.m in Sources */,
 			);
@@ -335,6 +417,7 @@
 		};
 		68B560441B4B6E2F00EDFC4D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 177BC57D7B2EA1FD760F6C45 /* Pods-iOSFontPreview.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = iOSFontPreview/Info.plist;
@@ -345,6 +428,7 @@
 		};
 		68B560451B4B6E2F00EDFC4D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2833654A856281305CAA5048 /* Pods-iOSFontPreview.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = iOSFontPreview/Info.plist;
@@ -406,6 +490,7 @@
 				68B560451B4B6E2F00EDFC4D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		68B560461B4B6E2F00EDFC4D /* Build configuration list for PBXNativeTarget "iOSFontPreviewTests" */ = {
 			isa = XCConfigurationList;
@@ -414,6 +499,7 @@
 				68B560481B4B6E2F00EDFC4D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
