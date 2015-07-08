@@ -17,7 +17,8 @@
 
 @implementation MainViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
 
     self.title = @"iOS Font Preview";
@@ -51,7 +52,8 @@
     _allFamilyFontNames = fontList;
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -80,7 +82,7 @@
     NSString *fontName = _allFamilyFontNames[indexPath.section];
     UIFont *font = [UIFont fontWithName:fontName size:25];
     
-    cell.textLabel.text = @"iOS Font Preview - 字体预览";
+    cell.textLabel.text = @"字体预览 - Font Preview";
     cell.textLabel.font = font;
     
     return cell;
