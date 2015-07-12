@@ -11,6 +11,52 @@
 
 #define kSTR_ALL    @"All"
 
+#pragma mark - Font Names
+
+NSArray *GetFontNames(NSString *familyName)
+{
+    return [UIFont fontNamesForFamilyName:familyName];
+}
+
+NSString *GetMainFontName(NSString *familyName)
+{
+    NSArray *fonts = GetFontNames(familyName);
+    
+    if (!(fonts && fonts.count > 0)) {
+        return nil;
+    }
+    
+    NSString *resultFont = fonts[0];
+    NSInteger minLength = [resultFont length];
+    
+    for (NSString *fontName in fonts) {
+        if ([fontName rangeOfString:@"regular" options:NSCaseInsensitiveSearch].location != NSNotFound) {
+            resultFont = fontName;
+            break;
+        }
+        
+        if (fontName.length < minLength) {
+            minLength = fontName.length;
+            resultFont = fontName;
+        }
+    }
+    
+    return resultFont;
+}
+
+NSArray *GetAllFamilyFontNames()
+{
+    NSArray *familyNames = [UIFont familyNames];
+    NSMutableArray *fontList = [NSMutableArray new];
+    
+    for (NSString *family in familyNames) {
+        [fontList addObjectsFromArray:GetFontNames(family)];
+    }
+    
+    return fontList;
+}
+
+#pragma mark - MainViewController
 
 @interface MainViewController () <UITableViewDelegate, UITableViewDataSource, DOPDropDownMenuDelegate, DOPDropDownMenuDataSource>
 
@@ -41,7 +87,7 @@
     DOPDropDownMenu *menu = [[DOPDropDownMenu alloc] initWithOrigin:CGPointMake(0, 64) andHeight:40];
     menu.delegate = self;
     menu.dataSource = self;
-    menu.menuTableHeight = 300;
+    menu.menuTableHeight = 400;
     menu.menuItemHeight = 50;
     [superView addSubview:menu];
     
@@ -64,14 +110,7 @@
     [arr addObjectsFromArray:familyNames];
     _allFamilyNames = arr;
     
-    NSMutableArray *fontList = [NSMutableArray new];
-    
-    for (NSString *family in familyNames) {
-        NSArray *familyNames = [UIFont fontNamesForFamilyName:family];
-        [fontList addObjectsFromArray:familyNames];
-    }
-    
-    _allFamilyFontNames = fontList;
+    _allFamilyFontNames = GetAllFamilyFontNames();
 }
 
 - (void)didReceiveMemoryWarning
@@ -159,9 +198,7 @@
         return family;
     }
     
-    NSArray *familyNames = [UIFont fontNamesForFamilyName:family];
-    
-    return familyNames[0];
+    return GetMainFontName(family);
 }
 
 - (NSInteger)numberOfColumnsInMenu:(DOPDropDownMenu *)menu
@@ -177,19 +214,9 @@
     NSString *family = _allFamilyNames[idx];
     
     if ([family isEqualToString:kSTR_ALL]) {
-        
-        NSArray *familyNames = [UIFont familyNames];
-        NSMutableArray *fontList = [NSMutableArray new];
-        
-        for (NSString *family in familyNames) {
-            NSArray *familyNames = [UIFont fontNamesForFamilyName:family];
-            [fontList addObjectsFromArray:familyNames];
-        }
-        
-        _allFamilyFontNames = fontList;
+        _allFamilyFontNames = GetAllFamilyFontNames();
     } else {
-        NSArray *familyNames = [UIFont fontNamesForFamilyName:family];
-        _allFamilyFontNames = familyNames;
+        _allFamilyFontNames = GetFontNames(family);
     }
     
     [_fontTable reloadData];
