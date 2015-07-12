@@ -7,11 +7,17 @@
 //
 
 #import "MainViewController.h"
+#import "DOPDropDownMenu.h"
 
-@interface MainViewController () <UITableViewDelegate, UITableViewDataSource>
+#define kSTR_ALL    @"All"
+
+
+@interface MainViewController () <UITableViewDelegate, UITableViewDataSource, DOPDropDownMenuDelegate, DOPDropDownMenuDataSource>
 
 @property (nonatomic, strong) NSArray *allFamilyNames;
 @property (nonatomic, strong) NSArray *allFamilyFontNames;
+
+@property (nonatomic, strong) UITableView *fontTable;
 
 @end
 
@@ -24,27 +30,43 @@
     self.title = @"iOS Font Preview";
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self buildView];
     [self buildData];
+    [self buildView];
 }
 
 - (void)buildView
 {
-    UITableView *fontTable = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
-    fontTable.delegate = self;
-    fontTable.dataSource = self;
-    fontTable.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
-    [self.view addSubview:fontTable];
+    UIView *superView = self.view;
+    
+    DOPDropDownMenu *menu = [[DOPDropDownMenu alloc] initWithOrigin:CGPointMake(0, 64) andHeight:40];
+    menu.delegate = self;
+    menu.dataSource = self;
+    menu.menuTableHeight = 300;
+    menu.menuItemHeight = 50;
+    [superView addSubview:menu];
+    
+    _fontTable = [[UITableView alloc] initWithFrame:superView.frame style:UITableViewStyleGrouped];
+    _fontTable.delegate = self;
+    _fontTable.dataSource = self;
+    _fontTable.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
+    [superView addSubview:_fontTable];
+    [_fontTable mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(menu.mas_bottom);
+        make.left.and.right.equalTo(@0);
+        make.bottom.equalTo(superView.mas_bottom);
+    }];
 }
 
 - (void)buildData
 {
-    NSArray *arr = [UIFont familyNames];
+    NSArray *familyNames = [UIFont familyNames];
+    NSMutableArray *arr = [[NSMutableArray alloc] initWithObjects:kSTR_ALL, nil];
+    [arr addObjectsFromArray:familyNames];
     _allFamilyNames = arr;
     
     NSMutableArray *fontList = [NSMutableArray new];
     
-    for (NSString *family in arr) {
+    for (NSString *family in familyNames) {
         NSArray *familyNames = [UIFont fontNamesForFamilyName:family];
         [fontList addObjectsFromArray:familyNames];
     }
@@ -101,6 +123,15 @@
     return 50;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 40;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.01;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -110,6 +141,59 @@
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:fontName message:@"已复制此字体名称到剪贴板" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
+}
+
+#pragma mark - DOPDropDownMenuDataSource
+
+- (NSInteger)menu:(DOPDropDownMenu *)menu numberOfRowsInColumn:(NSInteger)column
+{
+    return _allFamilyNames.count;
+}
+
+- (NSString *)menu:(DOPDropDownMenu *)menu titleForRowAtIndexPath:(DOPIndexPath *)indexPath
+{
+    NSInteger idx = indexPath.row;
+    
+    NSString *family = _allFamilyNames[idx];
+    if ([family isEqualToString:kSTR_ALL]) {
+        return family;
+    }
+    
+    NSArray *familyNames = [UIFont fontNamesForFamilyName:family];
+    
+    return familyNames[0];
+}
+
+- (NSInteger)numberOfColumnsInMenu:(DOPDropDownMenu *)menu
+{
+    return 1;
+}
+
+#pragma mark - DOPDropDownMenuDelegate
+
+- (void)menu:(DOPDropDownMenu *)menu didSelectRowAtIndexPath:(DOPIndexPath *)indexPath
+{
+    NSInteger idx = indexPath.row;
+    NSString *family = _allFamilyNames[idx];
+    
+    if ([family isEqualToString:kSTR_ALL]) {
+        
+        NSArray *familyNames = [UIFont familyNames];
+        NSMutableArray *fontList = [NSMutableArray new];
+        
+        for (NSString *family in familyNames) {
+            NSArray *familyNames = [UIFont fontNamesForFamilyName:family];
+            [fontList addObjectsFromArray:familyNames];
+        }
+        
+        _allFamilyFontNames = fontList;
+    } else {
+        NSArray *familyNames = [UIFont fontNamesForFamilyName:family];
+        _allFamilyFontNames = familyNames;
+    }
+    
+    [_fontTable reloadData];
+    
 }
 
 @end
