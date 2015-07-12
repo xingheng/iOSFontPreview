@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "DOPDropDownMenu.h"
+#import <MBProgressHUD.h>
 
 #define kSTR_ALL    @"All"
 
@@ -178,8 +179,18 @@ NSArray *GetAllFamilyFontNames()
     NSString *fontName = _allFamilyFontNames[indexPath.section];
     [UIPasteboard generalPasteboard].string = fontName;
     
+#if HUD
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeText;
+    hud.labelText = @"已复制此字体名称到剪贴板";
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    });
+#else
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:fontName message:@"已复制此字体名称到剪贴板" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
+#endif
 }
 
 #pragma mark - DOPDropDownMenuDataSource
