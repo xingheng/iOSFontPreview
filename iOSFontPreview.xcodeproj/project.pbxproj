@@ -31,6 +31,7 @@
 		0C40B215E7772528A9318EDD /* libPods-iOSFontPreview.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOSFontPreview.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		177BC57D7B2EA1FD760F6C45 /* Pods-iOSFontPreview.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSFontPreview.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSFontPreview/Pods-iOSFontPreview.debug.xcconfig"; sourceTree = "<group>"; };
 		2833654A856281305CAA5048 /* Pods-iOSFontPreview.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSFontPreview.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSFontPreview/Pods-iOSFontPreview.release.xcconfig"; sourceTree = "<group>"; };
+		68460B031B5235260091287C /* FontPreview.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FontPreview.pch; sourceTree = "<group>"; };
 		68B560261B4B6E2F00EDFC4D /* iOSFontPreview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSFontPreview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68B5602A1B4B6E2F00EDFC4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68B5602B1B4B6E2F00EDFC4D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -115,6 +116,7 @@
 			children = (
 				68B5602A1B4B6E2F00EDFC4D /* Info.plist */,
 				68B5602B1B4B6E2F00EDFC4D /* main.m */,
+				68460B031B5235260091287C /* FontPreview.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -420,6 +422,8 @@
 			baseConfigurationReference = 177BC57D7B2EA1FD760F6C45 /* Pods-iOSFontPreview.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/FontPreview.pch";
 				INFOPLIST_FILE = iOSFontPreview/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -431,6 +435,8 @@
 			baseConfigurationReference = 2833654A856281305CAA5048 /* Pods-iOSFontPreview.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/FontPreview.pch";
 				INFOPLIST_FILE = iOSFontPreview/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
