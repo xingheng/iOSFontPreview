@@ -185,6 +185,9 @@
     
     CGPathRef bound = CGPathCreateCopyByStrokingPath(layer.path, nil, layer.lineWidth, kCGLineCapButt, kCGLineJoinMiter, layer.miterLimit);
     layer.bounds = CGPathGetBoundingBox(bound);
+#if WILL_CHANGES
+    CGPathRelease(bound);
+#endif
     
     layer.position = point;
     
