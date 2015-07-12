@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define WILL_CHANGES     1   // tag for changed by Will Han.
+
 @interface DOPIndexPath : NSObject
 
 @property (nonatomic, assign) NSInteger column;
@@ -46,6 +48,10 @@
 @property (nonatomic, strong) UIColor *indicatorColor;
 @property (nonatomic, strong) UIColor *textColor;
 @property (nonatomic, strong) UIColor *separatorColor;
+#if WILL_CHANGES
+@property (nonatomic, assign) CGFloat menuTableHeight;
+@property (nonatomic, assign) CGFloat menuItemHeight;
+#endif
 /**
  *  the width of menu will be set to screen width defaultly
  *

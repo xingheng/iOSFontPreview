@@ -131,7 +131,9 @@
         
         //tableView init
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(origin.x, self.frame.origin.y + self.frame.size.height, self.frame.size.width, 0) style:UITableViewStylePlain];
+#if !WILL_CHANGES
         _tableView.rowHeight = 38;
+#endif
         _tableView.dataSource = self;
         _tableView.delegate = self;
         
@@ -323,6 +325,10 @@
         
         CGFloat tableViewHeight = ([tableView numberOfRowsInSection:0] > 5) ? (5 * tableView.rowHeight) : ([tableView numberOfRowsInSection:0] * tableView.rowHeight);
         
+#if WILL_CHANGES
+        tableViewHeight = MAX(tableViewHeight, _menuTableHeight);
+#endif
+        
         [UIView animateWithDuration:0.2 animations:^{
             _tableView.frame = CGRectMake(0, self.frame.origin.y + self.frame.size.height, self.frame.size.width, tableViewHeight);
         }];
@@ -401,6 +407,12 @@
     } else {
         //TODO: delegate is nil
     }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+#if WILL_CHANGES
+    return _menuItemHeight ?: 38;
+#endif
 }
 
 - (void)confiMenuWithSelectRow:(NSInteger)row {
